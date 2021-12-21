@@ -9,6 +9,9 @@ GCJ022是一个用于转换CSV文件中坐标的工具，能够将CSV文件中�
 - 支持BD09、GCJ02、WGS84等三种坐标相互转换。
 - 支持单个或批量CSV文件，遇错自动忽略并继续。
 
+## 下载
+[gcj022-v0.1.211221.exe](https://github.com/xiantuteng/gcj022/releases/download/v0.1/gcj022-v0.1.211221.exe)
+
 ## 依赖
 - Python 3.8
 - PyQt5
