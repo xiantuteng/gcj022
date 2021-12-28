@@ -10,7 +10,19 @@ GCJ022是一个用于转换CSV文件中坐标的工具，能够将CSV文件中�
 - 支持单个或批量CSV文件，遇错自动忽略并继续。
 
 ## 下载
-[gcj022-v0.1.211221.exe](https://github.com/xiantuteng/gcj022/releases/download/v0.1/gcj022-v0.1.211221.exe)
+- Windows:
+
+[gcj022-win-v0.1.211221.exe](https://github.com/xiantuteng/gcj022/releases/download/v0.1/gcj022-v0.1.211221.exe)
+
+- Linux:
+
+[gcj022-linux-v0.1.211228](https://github.com/xiantuteng/gcj022/releases/download/v0.1/gcj022-linux-v0.1.211228)
+
+说明：Linux环境下运行需要安装以下组件：
+```commandline
+sudo apt-get install libxcb-xinerama0
+sudo apt-get install python3-opencv
+```
 
 ## 依赖
 - Python 3.8
@@ -19,12 +31,30 @@ GCJ022是一个用于转换CSV文件中坐标的工具，能够将CSV文件中�
 - chardet
 
 ## 运行与打包
-### 编译
+
+### 编译Qt界面
 GCJ022 使用了QtDesigner设计的.ui文件，在运行前先要将.ui文件编译为.py文件，执行 build-ui.bat文件或执行以下命令：
 ```buildoutcfg
 python -m PyQt5.uic.pyuic main.ui -o UiMainDialog.py
 ```
-### 运行
+
+### Ubuntu下依赖配置 
+在Ubuntu环境下，执行会报如下错误：
+```commandline
+qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in "" even though it was found.
+This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
+
+Available platform plugins are: eglfs, linuxfb, minimal, minimalegl, offscreen, vnc, wayland-egl, wayland, wayland-xcomposite-egl, wayland-xcomposite-glx, webgl, xcb.
+```
+需要安装以下依赖库：
+```commandline
+sudo apt-get install libxcb-xinerama0
+sudo apt-get install python3-opencv
+pip uninstall opencv-python
+pip install opencv-contrib-python
+```
+
+### 源码运行
 使用Python可以直接运行
 ```buildoutcfg
 python main.py
